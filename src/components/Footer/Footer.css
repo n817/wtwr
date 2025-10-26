@@ -1,0 +1,8 @@
+.footer__author {
+  text-decoration: none;
+  transition: opacity .3s;
+}
+
+.footer__author:hover {
+  opacity: .7;
+}
