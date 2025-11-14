@@ -3,7 +3,7 @@
   font-weight: 500;
   font-display: swap;
   font-style: normal;
-  src: url("CabinetGrotesk-Medium.woff2") format("woff2");
+  src: url("CabinetGrotesk-Medium.otf") format("opentype");
 }
 
 @font-face {
@@ -11,7 +11,7 @@
   font-weight: 700;
   font-display: swap;
   font-style: normal;
-  src: url("CabinetGrotesk-Bold.woff2") format("woff2");
+  src: url("CabinetGrotesk-Bold.otf") format("opentype");
 }
 
 @font-face {
@@ -19,5 +19,5 @@
   font-weight: 900;
   font-display: swap;
   font-style: normal;
-  src: url("CabinetGrotesk-Black.woff2") format("woff2");
+  src: url("CabinetGrotesk-Black.otf") format("opentype");
 }

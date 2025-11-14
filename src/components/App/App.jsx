@@ -9,11 +9,13 @@ function App() {
 
   return (
     <div className="page">
-      <Header />
-      <Main />
-      <Footer />
-      <ModalWithForm />
-      <ItemModal />
+      <div className="page__content">
+        <Header />
+        <Main />
+        <Footer />
+        <ModalWithForm />
+        <ItemModal />
+      </div>
     </div>
   )
 }

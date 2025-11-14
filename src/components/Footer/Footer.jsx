@@ -2,17 +2,18 @@ import "./Footer.css";
 
 function Footer() {
   return(
-    <footer>
+    <footer className="footer">
       <p className="footer__copyright">
-          © 2025
+          Developed by
           <a
             href="https://github.com/n817"
             className="footer__author"
             target="_blank"
           >
-            github.com/n817
+            n817
           </a>
-        </p>
+      </p>
+      <p className="footer__year">2025</p>
     </footer>
   )
 }

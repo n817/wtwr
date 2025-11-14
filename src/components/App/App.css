@@ -1,7 +1,17 @@
 .page {
   font-family: "CabinetGrotesk";
   font-weight: 700;
-  max-width: 1280px;
+  background-color: #f3f3f3;
+}
+
+.page__content {
+  max-width: 1360px;
+  padding: 0 40px;
   margin: 0 auto;
-  text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+  .page__content {
+    padding: 0 16px;
+}
 }

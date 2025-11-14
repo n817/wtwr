@@ -6,9 +6,11 @@ import ItemCard from "../ItemCard/ItemCard";
 function Main() {
   return(
     <main>
-      <p>What to Wear?</p>
       <WeatherCard />
-      <ItemCard />
+      <section className="cards">
+        <p className="cards__text">Today is 75&deg; F / You may want to wear:</p>
+        <ItemCard />
+      </section>
     </main>
   )
 }
