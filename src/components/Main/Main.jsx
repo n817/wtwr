@@ -4,7 +4,7 @@ import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import { defaultClothingItems } from "../../utils/constants";
 
-function Main({ weatherData }) {
+function Main({ weatherData, handleCardClick }) {
   return(
     <main className="main">
       <WeatherCard />
@@ -20,6 +20,7 @@ function Main({ weatherData }) {
                 <ItemCard 
                   key={item._id} 
                   item={item}
+                  onCardClick={handleCardClick}
                 />
               )
             })}
