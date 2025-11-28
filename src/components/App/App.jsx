@@ -9,14 +9,24 @@ import ItemModal from "../ItemModal/ItemModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({ type: "cold" });
+  const [activeModal, setActiveModal] = useState(""); 
+
+  const closeActiveModal = () => {
+    setActiveModal("");
+  };
 
   return (
     <div className="page">
       <div className="page__content">
-        <Header />
-        <Main weatherData={weatherData}  />
+        <Header handleAddClick={() => {setActiveModal("add-garment")}} />
+        <Main weatherData={weatherData} />
         <Footer />
-        <ModalWithForm title="New garment" buttonText="Add garment">
+        <ModalWithForm 
+          title="New garment" 
+          buttonText="Add garment" 
+          activeModal={activeModal}
+          handleCloseClick={closeActiveModal}
+        >
           <label htmlFor="name" className="modal__label">Name
             <input id="name" type="text" className="modal__input" placeholder="Name" />
           </label>
