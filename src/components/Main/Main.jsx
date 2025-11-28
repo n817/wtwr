@@ -7,9 +7,9 @@ import { defaultClothingItems } from "../../utils/constants";
 function Main({ weatherData, handleCardClick }) {
   return(
     <main className="main">
-      <WeatherCard />
+      <WeatherCard temp={weatherData.temp.F} />
       <section className="main__items">
-        <p className="main__text">Today is 75&deg; F / You may want to wear:</p>
+        <p className="main__text">Today is {weatherData.temp.F}&deg; F / You may want to wear:</p>
         <ul className="main__list">
           {defaultClothingItems
             .filter((item) => {
