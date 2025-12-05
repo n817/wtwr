@@ -2,6 +2,7 @@ import "./Header.css";
 
 import logoImage from "../../images/logo.svg";
 import avatarImage from "../../images/avatar.png";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
 function Header({ handleAddClick, currentLocation }) {
 
@@ -17,6 +18,7 @@ function Header({ handleAddClick, currentLocation }) {
         <p className="header__date">{currentDate}, {currentLocation}</p>
       </div>
       <nav className="header__nav">
+        < ToggleSwitch />
         <button type="button" className="header__button" onClick={handleAddClick}>+ Add clothes</button>
         <div className="header__profile">
           <p className="header__username">Terrence Tegegne</p>

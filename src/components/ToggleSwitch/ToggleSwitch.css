@@ -1,0 +1,55 @@
+.toggle__label {
+  display: block;
+  position: relative;
+  width: 56px;
+  height: 28px;
+  border: 2px solid #7E7E7E;
+  box-sizing: border-box;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.toggle__checkbox {
+  opacity: 0;
+}
+
+.toggle__circle {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 28px;
+  height: 28px;
+  background-color: black;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.toggle__value {
+  position: absolute;
+  top: 5px;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 700;
+  color: #fff;
+  user-select: none;
+}
+
+.toggle__value_type_fahrenheit {
+  left: 8px;
+}
+
+.toggle__value_type_celsius {
+  right: 7px;
+}
+
+.toggle__label:hover {
+  border-color: black;
+}
+
+.toggle__checkbox:hover {
+  border-color: black;
+}
+
+.toggle__checkbox:checked ~ .toggle__circle {
+  left: 26px;
+}
