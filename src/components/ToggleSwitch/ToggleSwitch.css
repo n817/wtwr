@@ -30,16 +30,20 @@
   font-size: 14px;
   line-height: 1;
   font-weight: 700;
-  color: #fff;
+  color: #00000080;
   user-select: none;
 }
 
-.toggle__value_type_fahrenheit {
-  left: 8px;
+.toggle__value_type_celsius {
+  left: 7px;
 }
 
-.toggle__value_type_celsius {
+.toggle__value_type_fahrenheit {
   right: 7px;
+}
+
+.toggle__value_color_white {
+  color: #fff;
 }
 
 .toggle__label:hover {
