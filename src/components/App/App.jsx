@@ -16,7 +16,14 @@ import ItemModal from "../ItemModal/ItemModal";
 
 function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("C");
-  const [weatherData, setWeatherData] = useState({ type: "", temp: { F: 999 } });
+  const [weatherData, setWeatherData] = useState({
+    city: "Default City",
+    condition: "",
+    isDay: true,
+    temp: { C: 233, F: 451 },
+    type: ""
+  });
+  console.log(weatherData);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
 
@@ -36,9 +43,7 @@ function App() {
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
-        console.log(data);
         const filteredData = filterWeatherData(data);
-        console.log(filteredData);
         setWeatherData(filteredData);
       })
       .catch(console.error)
