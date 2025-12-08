@@ -8,6 +8,8 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 
 import { coordinates, APIkey } from "../../utils/constants";
 
+import { defaultClothingItems } from "../../utils/constants";
+
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -22,16 +24,16 @@ function App() {
     condition: "",
     isDay: true,
     temp: { C: 233, F: 451 },
-    type: ""
+    type: "",
   });
-  console.log(weatherData);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
-  }
+  };
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -41,13 +43,19 @@ function App() {
     setCurrentTemperatureUnit(currentTemperatureUnit === "C" ? "F" : "C");
   };
 
+  const handleAddItemSubmit = (inputValues) => {
+    console.log(inputValues);
+    setClothingItems([...clothingItems, inputValues]);
+    closeActiveModal();
+  };
+
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
       })
-      .catch(console.error)
+      .catch(console.error);
   }, []); // "[]" to run 1 time when component loads
 
   return (
@@ -56,22 +64,32 @@ function App() {
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
         <div className="page__content">
-          <Header handleAddClick={() => {setActiveModal("add-garment")}} currentLocation={weatherData.city} />
-          <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+          <Header
+            handleAddClick={() => {
+              setActiveModal("add-garment");
+            }}
+            currentLocation={weatherData.city}
+          />
+          <Main
+            weatherData={weatherData}
+            handleCardClick={handleCardClick}
+            clothingItems={clothingItems}
+          />
           <Footer />
           <AddItemModal
             isOpen={activeModal === "add-garment"}
+            onAddItem={handleAddItemSubmit}
             onClose={closeActiveModal}
           />
           <ItemModal
-            activeModal = {activeModal}
+            activeModal={activeModal}
             card={selectedCard}
             handleCloseClick={closeActiveModal}
           />
         </div>
       </CurrentTemperatureUnitContext.Provider>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
