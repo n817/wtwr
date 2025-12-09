@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
 
@@ -70,11 +71,20 @@ function App() {
             }}
             currentLocation={weatherData.city}
           />
-          <Main
-            weatherData={weatherData}
-            handleCardClick={handleCardClick}
-            clothingItems={clothingItems}
-          />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Main
+                  weatherData={weatherData}
+                  handleCardClick={handleCardClick}
+                  clothingItems={clothingItems}
+                />
+              }
+            />
+            <Route path="/profile" element={<p>PROFILE</p>} />
+          </Routes>
+
           <Footer />
           <AddItemModal
             isOpen={activeModal === "add-garment"}
