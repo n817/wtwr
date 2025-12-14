@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, data } from "react-router-dom";
 
 import "./App.css";
 
@@ -15,7 +15,7 @@ import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import { getItems } from "./api";
+import { getItems, addItem, deleteItem } from "./api";
 
 function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("C");
@@ -35,6 +35,15 @@ function App() {
     setSelectedCard(card);
   };
 
+  const handleDeleteCard = (cardToDelete) => {
+    deleteItem(cardToDelete._id).then(() => {
+      setClothingItems((cards) =>
+          cards.filter((item) => item._id !== cardToDelete._id),
+        );
+        closeActiveModal();
+    }).catch(console.error);
+  };
+
   const closeActiveModal = () => {
     setActiveModal("");
   };
@@ -44,9 +53,18 @@ function App() {
   };
 
   const handleAddItemSubmit = (inputValues) => {
-    console.log(inputValues);
-    setClothingItems([...clothingItems, inputValues]);
-    closeActiveModal();
+    const newCardData = {
+      name: inputValues.name,
+      weather: inputValues.weather,
+      imageUrl: inputValues.link,
+    };
+
+    addItem(newCardData)
+      .then((data) => {
+        setClothingItems([data, ...clothingItems]);
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
 
   useEffect(() => {
@@ -57,10 +75,11 @@ function App() {
       })
       .catch(console.error);
 
-    getItems().then((data) => {
-      setClothingItems(data);
-    })
-    .catch(console.error);
+    getItems()
+      .then((data) => {
+        setClothingItems(data.reverse());
+      })
+      .catch(console.error);
   }, []); // "[]" to run 1 time when component loads
 
   return (
@@ -107,6 +126,7 @@ function App() {
             activeModal={activeModal}
             card={selectedCard}
             handleCloseClick={closeActiveModal}
+            handleDeleteCard={handleDeleteCard}
           />
         </div>
       </CurrentTemperatureUnitContext.Provider>
