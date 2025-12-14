@@ -9,15 +9,13 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 
 import { coordinates, APIkey } from "../../utils/constants";
 
-import { defaultClothingItems } from "../../utils/constants";
-
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import { getItems } from "./api";
 
 function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("C");
@@ -30,7 +28,7 @@ function App() {
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
-  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
+  const [clothingItems, setClothingItems] = useState([]);
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -58,6 +56,11 @@ function App() {
         setWeatherData(filteredData);
       })
       .catch(console.error);
+
+    getItems().then((data) => {
+      setClothingItems(data);
+    })
+    .catch(console.error);
   }, []); // "[]" to run 1 time when component loads
 
   return (
