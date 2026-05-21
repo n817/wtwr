@@ -9,8 +9,8 @@ export default function ClothesSection({
   return (
     <div className="clothes">
       <div className="clothes__row">
-        <p>Text</p>
-        <button>BUTTON</button>
+        <h3 className="clothes__title">Your items</h3>
+        <button className="clothes__add-button">+ Add new</button>
       </div>
       <ul className="clothes__items">
         {clothingItems.map((item) => {
