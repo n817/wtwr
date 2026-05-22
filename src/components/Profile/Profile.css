@@ -1,4 +1,8 @@
 .profile {
   display: flex;
   justify-content: space-between;
+  margin: 47px 0 80px;
+
+  gap: 93px;
 }
+

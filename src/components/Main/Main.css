@@ -6,3 +6,9 @@
   list-style-type: none;
   gap: 20px;
 }
+
+.main__text {
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 34px 0;
+}

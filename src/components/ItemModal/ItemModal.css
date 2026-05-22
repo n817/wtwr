@@ -1,3 +1,17 @@
-.modal__content_type_image {
-  
+.modal__caption {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.modal__delete-button {
+  background: transparent;
+  border: none;
+  color: #ff4d00;
+  cursor: pointer;
+  padding: 0;
+}
+
+.modal__delete-button:hover {
+  opacity: 0.6;
 }

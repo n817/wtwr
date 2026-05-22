@@ -1,4 +1,7 @@
 .sidebar {
+  width: 248px;
+
+  flex-shrink: 0;
 }
 
 .sidebar__profile {
@@ -10,10 +13,13 @@
 .sidebar__avatar {
   width: 56px;
   height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .sidebar__username {
   font-size: 20px;
   line-height: 1;
   font-weight: 700;
+  margin: 0;
 }
