@@ -13,7 +13,7 @@ function Footer() {
             n817
           </a>
       </p>
-      <p className="footer__year">2025</p>
+      <p className="footer__year">2026</p>
     </footer>
   )
 }
