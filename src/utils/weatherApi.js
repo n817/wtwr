@@ -30,7 +30,7 @@ const getWeatherCondition = (temperature) => {
   if (temperature >= 86) {
     return "hot";
   } else if (temperature >= 66) {
-    return "war m";
+    return "warm";
   } else {
     return "cold";
   }

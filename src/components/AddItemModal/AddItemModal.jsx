@@ -78,6 +78,9 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
           />
         </label>
       </fieldset>
+      <button type="submit" className="modal__button">
+        Add garment
+      </button>
     </ModalWithForm>
   );
 };

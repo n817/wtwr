@@ -95,6 +95,15 @@
   cursor: pointer;
 }
 
+.modal__link-button {
+  color: rgba(0, 0, 0, 0.5);
+  border: none;
+  padding: 0;
+  font-weight: 700;
+  background: none;
+  cursor: pointer;
+}
+
 .modal__label {
   position: relative;
   display: block;
